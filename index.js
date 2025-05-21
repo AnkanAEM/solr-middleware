@@ -3,6 +3,7 @@ const express = require('express');
 const searchRoutes = require('./routes/search');
 const indexRoutes = require('./routes/addIndex');
 const deleteRoutes = require('./routes/delete');
+const reindexRoutes = require('./routes/reindex');
 const logger = require('./logger');
 require('./cron_jobs/indexingJob'); // Import the cron job to start it
 const cors = require("cors");
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use('/api/get', searchRoutes);
 app.use('/api/post', indexRoutes);
 app.use('/api', deleteRoutes);
+app.use('/api', reindexRoutes);
 
 app.listen(port, () => {
   logger.info(`Server is running on http://localhost:${port}`);

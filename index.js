@@ -10,9 +10,9 @@ const cors = require("cors");
 var corsOptions = {
   origin: ""
 }; // Change this on your production server
-app.use(cors()); // DO not use this on your production server - This enables CORS for all domains
 logger.info('App started');  
 const app = express();
+app.use(cors()); // DO not use this on your production server - This enables CORS for all domains
 const port = process.env.PORT || 3000;
 
 app.use(express.json());

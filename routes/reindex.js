@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const solrService = require('../services/solrService');
 const logger = require('../logger');
 const { updateSolrIndex } = require('../services/updateSolrIndexService');
 

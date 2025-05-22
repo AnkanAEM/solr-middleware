@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const logger = require('../logger');
-const { updateSolrIndex } = require('../services/updateSolrIndexService');
+const { initQueryIndexService } = require('../services/queryIndexService');
 
 router.post('/reindex', async (req, res) => {
 
   try {
-    updateSolrIndex.initQueryIndexService();
+    await initQueryIndexService();
+    res.send('Reindexing started');
   } catch (err) {
     logger.error('Error in /reindex:', err);
   }
